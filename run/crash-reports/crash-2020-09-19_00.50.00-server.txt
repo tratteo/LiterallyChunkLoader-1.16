@@ -1,0 +1,79 @@
+---- Minecraft Crash Report ----
+// This doesn't make any sense!
+
+Time: 19/09/20 0.50
+Description: Exception in server tick loop
+
+java.lang.NullPointerException: Exception in server tick loop
+	at net.literally.chunk.loader.initializer.LCLPersistentChunks.setAreaForceLoaded(LCLPersistentChunks.java:142)
+	at net.literally.chunk.loader.initializer.LCLPersistentChunks.initializePersistentAreas(LCLPersistentChunks.java:107)
+	at net.literally.chunk.loader.initializer.LCLPersistentChunks.lambda$initialize$0(LCLPersistentChunks.java:30)
+	at net.fabricmc.fabric.impl.event.lifecycle.LegacyEventInvokers.lambda$onInitialize$2(LegacyEventInvokers.java:33)
+	at net.minecraft.server.MinecraftServer.handler$zzh000$onEndTick(MinecraftServer.java:1750)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:850)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:92)
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:667)
+	at net.minecraft.server.MinecraftServer.method_29739(MinecraftServer.java:254)
+	at java.lang.Thread.run(Thread.java:748)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.16.3
+	Minecraft Version ID: 1.16.3
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_211, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 966213096 bytes (921 MB) / 1840775168 bytes (1755 MB) up to 3806855168 bytes (3630 MB)
+	CPUs: 24
+	JVM Flags: 0 total; 
+	Fabric Mods: 
+		fabric: Fabric API 0.21.0+build.407-1.16
+		fabric-api-base: Fabric API Base 0.1.3+12a8474c95
+		fabric-biome-api-v1: Fabric Biome API (v1) 2.0.0+c29459ab95
+		fabric-blockrenderlayer-v1: Fabric BlockRenderLayer Registration (v1) 1.1.4+c6a8ea8995
+		fabric-command-api-v1: Fabric Command API (v1) 1.0.8+5ce5339895
+		fabric-commands-v0: Fabric Commands (v0) 0.2.0+52d3083695
+		fabric-containers-v0: Fabric Containers (v0) 0.1.8+045df74f95
+		fabric-content-registries-v0: Fabric Content Registries (v0) 0.1.9+059ea86695
+		fabric-crash-report-info-v1: Fabric Crash Report Info (v1) 0.1.2+b7f9825d95
+		fabric-events-interaction-v0: Fabric Events Interaction (v0) 0.4.0+e2e6cdad95
+		fabric-events-lifecycle-v0: Fabric Events Lifecycle (v0) 0.2.0+16acbe5b95
+		fabric-game-rule-api-v1: Fabric Game Rule API (v1) 1.0.1+74685c1495
+		fabric-item-api-v1: Fabric Item API (v1) 1.1.0+29679fd695
+		fabric-item-groups-v0: Fabric Item Groups (v0) 0.2.0+438f963695
+		fabric-key-binding-api-v1: Fabric Key Binding API (v1) 1.0.1+730711c695
+		fabric-keybindings-v0: Fabric Key Bindings (v0) 0.2.0+3fa9f7c595
+		fabric-lifecycle-events-v1: Fabric Lifecycle Events (v1) 1.2.0+74cc3b2095
+		fabric-loot-tables-v1: Fabric Loot Tables (v1) 1.0.1+432ea18895
+		fabric-mining-levels-v0: Fabric Mining Levels (v0) 0.1.2+b764ce9995
+		fabric-models-v0: Fabric Models (v0) 0.1.0+dfdb52d695
+		fabric-networking-blockentity-v0: Fabric Networking Block Entity (v0) 0.2.5+b50ffc7b95
+		fabric-networking-v0: Fabric Networking (v0) 0.1.10+e00ecb5f95
+		fabric-object-builder-api-v1: Fabric Object Builder API (v1) 1.8.0+c1aa8ed895
+		fabric-object-builders-v0: Fabric Object Builders (v0) 0.7.0+432ea18895
+		fabric-particles-v1: fabric-particles-v1 0.2.2+fb0d9b0e95
+		fabric-registry-sync-v0: Fabric Registry Sync (v0) 0.5.0+c1aa8ed895
+		fabric-renderer-api-v1: Fabric Renderer API (v1) 0.3.0+8bcfced895
+		fabric-renderer-indigo: Fabric Renderer - Indigo 0.4.0+8bcfced895
+		fabric-renderer-registries-v1: Fabric Renderer Registries (v1) 2.1.0+e2862de695
+		fabric-rendering-data-attachment-v1: Fabric Rendering Data Attachment (v1) 0.1.3+b7f9825d95
+		fabric-rendering-fluids-v1: Fabric Rendering Fluids (v1) 0.1.11+fb0d9b0e95
+		fabric-rendering-v0: Fabric Rendering (v0) 1.1.0+5341049095
+		fabric-rendering-v1: Fabric Rendering (v1) 1.3.0+432ea18895
+		fabric-resource-loader-v0: Fabric Resource Loader (v0) 0.3.1+facf3bbf95
+		fabric-screen-handler-api-v1: Fabric Screen Handler API (v1) 1.1.0+8724984195
+		fabric-structure-api-v1: Fabric Structure API (v1) 1.0.1+fb0d9b0e95
+		fabric-tag-extensions-v0: Fabric Tag Extensions (v0) 1.0.3+ac8e8c5995
+		fabric-textures-v0: Fabric Textures (v0) 1.0.4+eae12eb895
+		fabric-tool-attribute-api-v1: Fabric Tool Attribute API (v1) 1.2.2+ccce563e95
+		fabricloader: Fabric Loader 0.9.3+build.207
+		lchunkloader: Literally Chunk Loader 1.2.2
+		minecraft: Minecraft 1.16.3
+	Player Count: 0 / 8; []
+	Data Packs: vanilla, fabric/lchunkloader, fabric/fabric-tool-attribute-api-v1
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'fabric'
