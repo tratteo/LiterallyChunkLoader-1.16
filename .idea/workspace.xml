@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f668d998-537f-4320-a0cb-4bd63a0d3609" name="Default Changelist" comment="" />
+    <list default="true" id="f668d998-537f-4320-a0cb-4bd63a0d3609" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/run/logs/2020-09-27-1.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2020-09-27-2.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/debug-5.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Minecraft_Client.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Minecraft_Client.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/.mixin.out/audit/mixin_implementation_report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/.mixin.out/audit/mixin_implementation_report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/config/fabric/indigo-renderer.properties" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/fabric/indigo-renderer.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-1.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-2.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-3.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-4.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/latest.log" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,7 +49,8 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LaLegaSushi" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
@@ -75,6 +91,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="929" y="341" key="#Minecraft_Client" timestamp="1601160046760">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="929" y="341" key="#Minecraft_Client/0.0.2560.1400@0.0.2560.1400" timestamp="1601160046760" />
     <state x="1039" y="339" key="#com.intellij.ide.util.MemberChooser" timestamp="1600467871318">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -83,21 +103,21 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1008" y="397" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1600523894329" />
-    <state width="1756" height="373" key="GridCell.Tab.0.bottom" timestamp="1600469497895">
+    <state width="1752" height="659" key="GridCell.Tab.0.bottom" timestamp="1601160563032">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1756" height="373" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1600469497895" />
-    <state width="1756" height="373" key="GridCell.Tab.0.center" timestamp="1600469497895">
+    <state width="1752" height="659" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1601160563032" />
+    <state width="1752" height="659" key="GridCell.Tab.0.center" timestamp="1601160563032">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1756" height="373" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1600469497895" />
-    <state width="1756" height="373" key="GridCell.Tab.0.left" timestamp="1600469497895">
+    <state width="1752" height="659" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1601160563032" />
+    <state width="1752" height="659" key="GridCell.Tab.0.left" timestamp="1601160563032">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1756" height="373" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1600469497895" />
-    <state width="1756" height="373" key="GridCell.Tab.0.right" timestamp="1600469497895">
+    <state width="1752" height="659" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1601160563032" />
+    <state width="1752" height="659" key="GridCell.Tab.0.right" timestamp="1601160563032">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1756" height="373" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1600469497895" />
+    <state width="1752" height="659" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1601160563032" />
   </component>
 </project>
