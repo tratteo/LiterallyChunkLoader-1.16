@@ -19,8 +19,6 @@
             "net.literally.chunk.loader.loaders.LCLLoader"
         ]
     },
-    "mixins": [
-    ],
     "depends": {
         "fabricloader": ">=0.7.2",
         "fabric": "*",
@@ -28,5 +26,9 @@
     },
     "suggests": {
         "flamingo": "*"
-    }
+    },
+    "mixins": [
+        "lchunkloader.mixins.json"
+    ],
+    "accessWidener": "lchunkloader.accesswidener"
 }
