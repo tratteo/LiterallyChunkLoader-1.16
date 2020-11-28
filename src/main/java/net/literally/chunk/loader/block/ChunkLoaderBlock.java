@@ -12,12 +12,14 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.MessageType;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.text.LiteralText;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -84,30 +86,26 @@ public class ChunkLoaderBlock extends Block
         if(!world.isClient)
         {
             MinecraftServer server = world.getServer();
-            System.out.println(world.getRegistryKey().getValue().getPath());
             AreaData newArea = new AreaData(pos.getX(), pos.getZ(), world.getRegistryKey().getValue().getPath());
             LCLPersistentChunks.addPersistentArea(server, newArea);
         }
         super.onPlaced(world, pos, state, placer, itemStack);
     }
     
+    
     @Override public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos)
     {
-        return true;
-        //if(!world.isClient())
-        //{
-        //    AreaData newArea = new AreaData(new CentreData(pos.getX(), pos.getZ()), AreaImplementation.getIDFromRegistryKey(world.get));
-        //    boolean canPlace = LCLPersistentChunks.canPlaceLoaderAt(newArea);
-        //    if(!canPlace)
-        //    {
-        //        MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(new LiteralText("Can't place a Loader between a 5 chunk radius from another Loader!"));
-        //    }
-        //    return canPlace;
-        //}
-        //else
-        //{
-        //    return false;
-        //}
+        if(world.isClient()) return true;
+        
+        World worldClass = (World) world;
+        AreaData newArea = new AreaData(new CentreData(pos.getX(), pos.getZ()), worldClass.getRegistryKey().getValue().getPath());
+        boolean canPlace = LCLPersistentChunks.canPlaceLoaderAt(newArea);
+        if(!canPlace)
+        {
+            MinecraftServer server = ((World) world).getServer();
+            server.getPlayerManager().broadcastChatMessage(new LiteralText("Can't place a Loader between a 5 chunk radius from another Loader!"), MessageType.CHAT, Util.NIL_UUID);
+        }
+        return canPlace;
     }
     
     @Environment(EnvType.CLIENT)

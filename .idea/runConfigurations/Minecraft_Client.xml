@@ -2,7 +2,7 @@
   <configuration default="false" name="Minecraft Client" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="net.fabricmc.devlaunchinjector.Main" />
     <module name="LiterallyChunkLoader-1.16.main" />
-    <option name="VM_PARAMETERS" value="-Dfabric.dli.config=C:\Users\Matteo\Documents\Projects\Mods\LiterallyChunkLoader\.gradle\loom-cache\launch.cfg -Dfabric.dli.env=client -Dfabric.dli.main=net.fabricmc.loader.launch.knot.KnotClient" />
+    <option name="VM_PARAMETERS" value="-Dfabric.dli.config=C:\Users\Matteo\Documents\Projects\Mods\LiterallyChunkLoader-1.16\.gradle\loom-cache\launch.cfg -Dfabric.dli.env=client -Dfabric.dli.main=net.fabricmc.loader.launch.knot.KnotClient" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run/" />
     <method v="2">
       <option name="Make" enabled="true" />

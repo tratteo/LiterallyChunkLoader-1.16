@@ -28,7 +28,7 @@ public final class LCLPersistentChunks
             if(firstTick)
             {
                 initializePersistentAreas(server);
-                CURRENT_LEVEL_NAME = server.getName();
+                CURRENT_LEVEL_NAME = server.getSaveProperties().getLevelName();
                 firstTick = false;
             }
         });
@@ -36,7 +36,7 @@ public final class LCLPersistentChunks
     
     public static boolean toggleAreaState(MinecraftServer server, AreaData data, boolean state)
     {
-        SerializedAreasData areasData = ChunksSerializeManager.deserialize(server.getName());
+        SerializedAreasData areasData = ChunksSerializeManager.deserialize(server.getSaveProperties().getLevelName());
         if(areasData == null)
         {
             return false;
@@ -45,13 +45,13 @@ public final class LCLPersistentChunks
         {
             SerializedAreasImplementation.toggleArea(areasData, data, state);
             setAreaForceLoaded(server, data, state);
-            return ChunksSerializeManager.serialize(areasData, server.getName());
+            return ChunksSerializeManager.serialize(areasData, server.getSaveProperties().getLevelName());
         }
     }
     
     public static boolean removePersistentArea(MinecraftServer server, AreaData area)
     {
-        SerializedAreasData areasData = ChunksSerializeManager.deserialize(server.getName());
+        SerializedAreasData areasData = ChunksSerializeManager.deserialize(server.getSaveProperties().getLevelName());
         if(areasData == null)
         {
             return false;
@@ -60,19 +60,19 @@ public final class LCLPersistentChunks
         {
             SerializedAreasImplementation.removeArea(areasData, area);
             setAreaForceLoaded(server, area, false);
-            return ChunksSerializeManager.serialize(areasData, server.getName());
+            return ChunksSerializeManager.serialize(areasData, server.getSaveProperties().getLevelName());
         }
     }
     
     public static boolean addPersistentArea(MinecraftServer server, AreaData area)
     {
-        SerializedAreasData areasData = ChunksSerializeManager.deserialize(server.getName());
+        SerializedAreasData areasData = ChunksSerializeManager.deserialize(server.getSaveProperties().getLevelName());
         if(areasData == null)
         {
             areasData = new SerializedAreasData();
         }
         SerializedAreasImplementation.addArea(areasData, area);
-        return ChunksSerializeManager.serialize(areasData, server.getName());
+        return ChunksSerializeManager.serialize(areasData, server.getSaveProperties().getLevelName());
     }
     
     public static boolean canPlaceLoaderAt(AreaData data)
@@ -98,7 +98,7 @@ public final class LCLPersistentChunks
     
     private static void initializePersistentAreas(MinecraftServer server)
     {
-        SerializedAreasData areasData = ChunksSerializeManager.deserialize(server.getName());
+        SerializedAreasData areasData = ChunksSerializeManager.deserialize(server.getSaveProperties().getLevelName());
         if(areasData != null)
         {
             ArrayList<AreaData> areas = areasData.getAreas();
