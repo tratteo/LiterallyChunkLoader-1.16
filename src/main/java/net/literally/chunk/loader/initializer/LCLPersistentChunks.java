@@ -111,6 +111,7 @@ public final class LCLPersistentChunks
     
     public static void setAreaForceLoaded(MinecraftServer server, AreaData area, boolean forceLoaded)
     {
+        //ForceLoadCommand
         ModLogger logger = new ModLogger(LCLLoader.MOD_ID);
         
         int i = (int) area.getCentreData().getX() - 32;

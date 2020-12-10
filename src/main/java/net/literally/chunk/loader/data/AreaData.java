@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class AreaData implements Serializable
 {
     private CentreData centre;
+    
     private String dimensionID;
     private int fromChunkX;
     private int toChunkX;
