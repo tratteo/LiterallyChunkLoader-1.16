@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="f668d998-537f-4320-a0cb-4bd63a0d3609" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/LiterallyChunkLoader-1.16.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/literally/chunk/loader/block/ChunkLoaderBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/literally/chunk/loader/block/ChunkLoaderBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/literally/chunk/loader/data/AreaData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/literally/chunk/loader/data/AreaData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/literally/chunk/loader/data/CentreData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/literally/chunk/loader/data/CentreData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/literally/chunk/loader/initializer/LCLPersistentChunks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/literally/chunk/loader/initializer/LCLPersistentChunks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/literally/chunk/loader/initializer/LCLTicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/literally/chunk/loader/initializer/LCLTicker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +43,9 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LaLegaSushi-1.16" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
@@ -66,6 +69,7 @@
       <item itemvalue="Application.Minecraft Server" />
     </list>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -81,47 +85,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="929" y="341" key="#Minecraft_Client" timestamp="1601160046760">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="929" y="341" key="#Minecraft_Client/0.0.2560.1400@0.0.2560.1400" timestamp="1601160046760" />
-    <state x="732" y="347" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606600652997">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="732" y="347" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1606600652997" />
-    <state x="942" y="484" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603379714558">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="942" y="484" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1603379714558" />
-    <state x="1039" y="339" key="#com.intellij.ide.util.MemberChooser" timestamp="1606592926896">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1039" y="339" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1606592926896" />
-    <state x="1008" y="397" key="FileChooserDialogImpl" timestamp="1607038152515">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1008" y="397" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1607038152515" />
-    <state width="2505" height="337" key="GridCell.Tab.0.bottom" timestamp="1606844366268">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2505" height="337" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1606844366268" />
-    <state width="2505" height="337" key="GridCell.Tab.0.center" timestamp="1606844366268">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2505" height="337" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1606844366268" />
-    <state width="2505" height="337" key="GridCell.Tab.0.left" timestamp="1606844366268">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2505" height="337" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1606844366268" />
-    <state width="2505" height="337" key="GridCell.Tab.0.right" timestamp="1606844366268">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2505" height="337" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1606844366268" />
-    <state x="1036" y="316" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1605565382643">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1036" y="316" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1605565382643" />
   </component>
 </project>
