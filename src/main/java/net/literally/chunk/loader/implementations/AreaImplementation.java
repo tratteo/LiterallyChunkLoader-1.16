@@ -20,11 +20,11 @@ public final class AreaImplementation
     {
         if(!first.getDimensionID().equals(second.getDimensionID())) return false;
         
-        if(first.getFromChunkX() >= second.getToChunkX() || second.getFromChunkX() >= first.getToChunkX())
+        if(first.getToChunkX() < second.getFromChunkX() || second.getToChunkX() < first.getFromChunkX())
         {
             return false;
         }
-        if(first.getToChunkZ() <= second.getFromChunkZ() || second.getToChunkZ() <= first.getFromChunkZ())
+        if(first.getToChunkZ() < second.getFromChunkZ() || second.getToChunkZ() < first.getFromChunkZ())
         {
             return false;
         }
@@ -33,7 +33,6 @@ public final class AreaImplementation
     
     public static RegistryKey<World> getDimensionRegistryKey(String id)
     {
-        
         String overworldID = World.OVERWORLD.getValue().getPath();
         String netherID = World.NETHER.getValue().getPath();
         String endID = World.END.getValue().getPath();

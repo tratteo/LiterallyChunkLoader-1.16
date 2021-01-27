@@ -5,10 +5,112 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f668d998-537f-4320-a0cb-4bd63a0d3609" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/LiterallyChunkLoader-1.16.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2020-12-01-1.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2020-12-01-2.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2021-01-26-1.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2021-01-26-2.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2021-01-26-3.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2021-01-27-1.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2021-01-27-2.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2021-01-27-3.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2021-01-27-4.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2021-01-27-5.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2021-01-27-6.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/logs/2021-01-27-7.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/mods/literally_chunk_loader/1/chunks.data" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/DIM-1/data/raids.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/DIM1/data/raids_end.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/advancements/01986ee6-ca3c-3b64-bdcd-02039da5963f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/advancements/0dba4657-9c98-3a17-999f-e412cc5ea8b2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/advancements/1a855883-f969-3f42-8f5f-11e58eba890c.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/advancements/1c3a2857-e7ef-32a0-829f-3ff0829e8487.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/advancements/449546f9-463a-3959-807a-caed6d7d3cca.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/advancements/48c2e6c7-8875-31cc-9a01-be7eaa5f9386.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/advancements/4ed9b5cf-d91a-3bc8-9000-b0476eccd342.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/advancements/5031b283-213a-3769-9d06-07f0ca40feb8.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/advancements/ae44171f-eee5-3760-be7d-ed3ffafd8795.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/advancements/d447d002-8f00-3c6c-8a29-93b028d90375.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/advancements/e342fe1d-63b8-357f-8114-7490b4ce5aed.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/advancements/eed40018-eacf-3358-87a4-2d80ad7eb0d1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/data/chunks.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/data/fabricDynamicRegistry.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/data/raids.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/level.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/level.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/01986ee6-ca3c-3b64-bdcd-02039da5963f.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/01986ee6-ca3c-3b64-bdcd-02039da5963f.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/0dba4657-9c98-3a17-999f-e412cc5ea8b2.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/0dba4657-9c98-3a17-999f-e412cc5ea8b2.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/1a855883-f969-3f42-8f5f-11e58eba890c.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/1a855883-f969-3f42-8f5f-11e58eba890c.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/1c3a2857-e7ef-32a0-829f-3ff0829e8487.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/1c3a2857-e7ef-32a0-829f-3ff0829e8487.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/449546f9-463a-3959-807a-caed6d7d3cca.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/449546f9-463a-3959-807a-caed6d7d3cca.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/48c2e6c7-8875-31cc-9a01-be7eaa5f9386.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/48c2e6c7-8875-31cc-9a01-be7eaa5f9386.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/4ed9b5cf-d91a-3bc8-9000-b0476eccd342.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/4ed9b5cf-d91a-3bc8-9000-b0476eccd342.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/5031b283-213a-3769-9d06-07f0ca40feb8.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/5031b283-213a-3769-9d06-07f0ca40feb8.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/ae44171f-eee5-3760-be7d-ed3ffafd8795.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/ae44171f-eee5-3760-be7d-ed3ffafd8795.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/d447d002-8f00-3c6c-8a29-93b028d90375.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/d447d002-8f00-3c6c-8a29-93b028d90375.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/e342fe1d-63b8-357f-8114-7490b4ce5aed.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/e342fe1d-63b8-357f-8114-7490b4ce5aed.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/eed40018-eacf-3358-87a4-2d80ad7eb0d1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/playerdata/eed40018-eacf-3358-87a4-2d80ad7eb0d1.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/poi/r.-1.-1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/poi/r.-1.0.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/poi/r.0.-1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/poi/r.0.0.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/region/r.-1.-1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/region/r.-1.0.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/region/r.-2.-1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/region/r.-2.0.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/region/r.0.-1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/region/r.0.0.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/stats/01986ee6-ca3c-3b64-bdcd-02039da5963f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/stats/0dba4657-9c98-3a17-999f-e412cc5ea8b2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/stats/1a855883-f969-3f42-8f5f-11e58eba890c.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/stats/1c3a2857-e7ef-32a0-829f-3ff0829e8487.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/stats/449546f9-463a-3959-807a-caed6d7d3cca.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/stats/48c2e6c7-8875-31cc-9a01-be7eaa5f9386.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/stats/4ed9b5cf-d91a-3bc8-9000-b0476eccd342.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/stats/5031b283-213a-3769-9d06-07f0ca40feb8.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/stats/ae44171f-eee5-3760-be7d-ed3ffafd8795.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/stats/d447d002-8f00-3c6c-8a29-93b028d90375.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/stats/e342fe1d-63b8-357f-8114-7490b4ce5aed.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/1/stats/eed40018-eacf-3358-87a4-2d80ad7eb0d1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/Test/advancements/449546f9-463a-3959-807a-caed6d7d3cca.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/Test/playerdata/449546f9-463a-3959-807a-caed6d7d3cca.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/Test/playerdata/449546f9-463a-3959-807a-caed6d7d3cca.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/saves/Test/stats/449546f9-463a-3959-807a-caed6d7d3cca.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/LiterallyChunkLoader-1.16.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LiterallyChunkLoader-1.16.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/literally/chunk/loader/initializer/LCLTicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/literally/chunk/loader/initializer/LCLTicker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/.mixin.out/audit/mixin_implementation_report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/.mixin.out/audit/mixin_implementation_report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/config/fabric/indigo-renderer.properties" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/fabric/indigo-renderer.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-1.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-2.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-3.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-4.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug-5.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/latest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/Test/DIM-1/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/Test/DIM-1/data/raids.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/Test/DIM1/data/raids_end.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/Test/DIM1/data/raids_end.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/Test/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/Test/data/raids.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/Test/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/Test/level.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/Test/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/Test/level.dat_old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/Test/region/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/Test/region/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/Test/region/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/Test/region/r.0.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/usercache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/literally/chunk/loader/block/ChunkLoaderBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/literally/chunk/loader/block/ChunkLoaderBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/literally/chunk/loader/implementations/AreaImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/literally/chunk/loader/implementations/AreaImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/literally/chunk/loader/initializer/LCLItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/literally/chunk/loader/initializer/LCLItems.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +147,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LiterallyChunkLoader-1.15" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
