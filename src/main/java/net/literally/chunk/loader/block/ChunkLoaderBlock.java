@@ -17,6 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.MessageType;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
@@ -62,13 +63,17 @@ public class ChunkLoaderBlock extends Block
     {
         if(!world.isClient)
         {
-            boolean wasActive = state.get(ACTIVE);
-            world.setBlockState(pos, world.getBlockState(pos).with(ACTIVE, !wasActive), 0B1011);
-            MinecraftServer server = world.getServer();
-            AreaData newArea = new AreaData(pos.getX(), pos.getZ(), world.getRegistryKey().getValue().getPath());
-            LCLPersistentChunks.toggleAreaState(server, newArea, !wasActive);
+            setActive(world, pos,state, !state.get(ACTIVE));
         }
         return ActionResult.SUCCESS;
+    }
+    
+    private void setActive(World world, BlockPos pos, BlockState state, boolean active)
+    {
+        world.setBlockState(pos, world.getBlockState(pos).with(ACTIVE, active), 0B1011);
+        MinecraftServer server = world.getServer();
+        AreaData newArea = new AreaData(pos.getX(), pos.getZ(), world.getRegistryKey().getValue().getPath());
+        LCLPersistentChunks.toggleAreaState(server, newArea, active);
     }
     
     @Override public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player)
@@ -87,6 +92,22 @@ public class ChunkLoaderBlock extends Block
         }
     }
     
+    @Override public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random)
+    {
+        boolean isOn = (Boolean) state.get(ACTIVE);
+        setActive(world, pos, state, !isOn);
+        super.scheduledTick(state, world, pos, random);
+    }
+    
+    @Override
+    public void neighborUpdate(BlockState state, World world, BlockPos pos, Block block, BlockPos neighborPos, boolean moved)
+    {
+        boolean isRecevingRedstonePower = world.isReceivingRedstonePower(pos) || world.isReceivingRedstonePower(pos.up());
+        if(isRecevingRedstonePower)
+        {
+            world.getBlockTickScheduler().schedule(pos, this, 8);
+        }
+    }
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack)
     {
@@ -158,4 +179,5 @@ public class ChunkLoaderBlock extends Block
     {
         return state.rotate(mirror.getRotation(state.get(FACING)));
     }
+    
 }

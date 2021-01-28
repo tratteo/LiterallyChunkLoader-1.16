@@ -153,7 +153,7 @@ public final class LCLPersistentChunks
                 }
                 else
                 {
-                    logger.logInfo("No chunks were affected (duplicate state)");
+                    //logger.logInfo("No chunks were affected (duplicate state)");
                 }
                 area.setActive(forceLoaded);
             }
