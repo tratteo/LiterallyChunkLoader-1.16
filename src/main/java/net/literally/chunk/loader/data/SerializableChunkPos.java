@@ -39,7 +39,7 @@ public class SerializableChunkPos implements Serializable
     {
         int x = buf.readInt();
         int z = buf.readInt();
-        String dimension = buf.readString();
+        String dimension = buf.readString(32767);
         return new SerializableChunkPos(x, z, dimension);
     }
     

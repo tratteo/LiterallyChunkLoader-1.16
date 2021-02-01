@@ -13,7 +13,6 @@ import java.util.ArrayList;
 public final class LCLPersistentChunks
 {
     public static String CURRENT_LEVEL_NAME;
-    
     private static LclData data;
     
     public static void initialize(MinecraftServer server)
@@ -52,12 +51,10 @@ public final class LCLPersistentChunks
         setChunkForceLoaded(server, chunk, state);
     }
     
-    
     public static boolean canPlaceLoaderAt(SerializableChunkPos chunk)
     {
         return !data.isLoaderPresentAt(chunk);
     }
-    
     
     private static void initializeForcedChunks(MinecraftServer server)
     {
@@ -80,14 +77,18 @@ public final class LCLPersistentChunks
         }
     }
     
-    
     private static void setChunkForceLoaded(MinecraftServer server, SerializableChunkPos chunk, boolean state)
     {
+        ModLogger logger = new ModLogger(LCLLoader.MOD_ID);
         ServerWorld serverWorld = server.getWorld(chunk.getDimensionRegistryKey());
         if(chunk.getX() >= -30000000 && chunk.getZ() >= -30000000 && chunk.getX() < 30000000 && chunk.getZ() < 30000000)
         {
             assert serverWorld != null;
-            serverWorld.setChunkForced(chunk.getX(), chunk.getZ(), state);
+            boolean res = serverWorld.setChunkForced(chunk.getX(), chunk.getZ(), state);
+            if(res)
+            {
+                logger.logInfo("Setting chunk: "+chunk.toString()+" forceloaded = "+state);
+            }
         }
     }
     

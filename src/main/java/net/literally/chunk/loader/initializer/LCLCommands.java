@@ -42,18 +42,32 @@ public final class LCLCommands
                   .then(CommandManager.argument("dimension", word()).suggests(suggestedStrings())
                         .executes(ctx ->
                         {
-                            ArrayList<SerializableChunkPos> loaders = getLoadersInDimension(ctx, getString(ctx, "dimension"));
+                            String dimension = getString(ctx, "dimension");
+                            ArrayList<SerializableChunkPos> loaders = getLoadersInDimension(ctx, dimension);
                             if(loaders.size() == 0)
                             {
-                                ctx.getSource().sendFeedback((new LiteralText("No loaders found in dimension: " + getString(ctx, "dimension") + "\n")), false);
+                                ctx.getSource().sendFeedback((new LiteralText("No loaders found in dimension: " + dimension + "\n")), false);
                                 return 1;
                             }
                             int size = loaders.size();
-                            StringBuilder response = new StringBuilder("Found " + size + " placed loaders in dimension: " + getString(ctx, "dimension") + "\n");
+                            StringBuilder response = new StringBuilder("Found " + size + " placed loaders ");
+                            if(!dimension.equals("all"))
+                            {
+                                response.append("in dimension: " + dimension + "\n");
+                                
+                            }
+                            else
+                            {
+                                response.append(": \n");
+                            }
                             for(int i = 0; i < size; i++)
                             {
                                 SerializableChunkPos current = loaders.get(i);
                                 response.append("[").append(current.getX()).append(", ").append(current.getZ()).append("]");
+                                if(dimension.equals("all"))
+                                {
+                                    response.append(" in " + current.getDimension());
+                                }
                                 if(i < size - 1)
                                 {
                                     response.append(", ");

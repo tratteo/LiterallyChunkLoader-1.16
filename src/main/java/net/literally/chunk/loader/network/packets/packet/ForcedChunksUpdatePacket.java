@@ -26,7 +26,7 @@ import java.util.List;
 
 public class ForcedChunksUpdatePacket
 {
-    public static Identifier PACKET_ID = new Identifier(LCLLoader.MOD_ID, "fc_packet_cts");
+    public static Identifier PACKET_ID = new Identifier(LCLLoader.MOD_ID, "fc_packet");
     
     private ArrayList<SerializableChunkPos> chunksPos;
     private final int x;

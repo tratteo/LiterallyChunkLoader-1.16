@@ -10,8 +10,10 @@ import io.github.cottonmc.cotton.gui.widget.data.VerticalAlignment;
 import net.literally.chunk.loader.data.LclData;
 import net.literally.chunk.loader.data.SerializableChunkPos;
 import net.literally.chunk.loader.entity.ChunkLoaderBlockEntity;
+import net.literally.chunk.loader.initializer.LCLBlocks;
 import net.literally.chunk.loader.initializer.LCLGUIHandlers;
 import net.literally.chunk.loader.network.packets.packet.ForcedChunksUpdatePacket;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.text.LiteralText;
@@ -24,10 +26,12 @@ public class ChunkLoaderGUIHandler extends SyncedGuiDescription
     ChunkLoaderBlockEntity loaderEntity;
     WToggleButton[][] buttonsMatrix;
     SerializableChunkPos centre;
+    ScreenHandlerContext context;
     
     public ChunkLoaderGUIHandler(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context)
     {
-        super(LCLGUIHandlers.CHUNK_LOADER_SCREEN_HANDLER, syncId, playerInventory, null, null);
+        super(LCLGUIHandlers.CHUNK_LOADER_SCREEN_HANDLER, syncId, playerInventory, getBlockInventory(context), null);
+        this.context = context;
         context.run((world, pos) ->
         {
             loaderEntity = (ChunkLoaderBlockEntity) world.getBlockEntity(pos);
@@ -71,6 +75,11 @@ public class ChunkLoaderGUIHandler extends SyncedGuiDescription
         root.add(selectAll, 16, 128, 40, 24);
         root.add(selectNone, 71, 128, 40, 24);
         setRootPanel(root);
+    }
+    
+    @Override public boolean canUse(PlayerEntity entity)
+    {
+        return super.canUse(context, entity, LCLBlocks.CHUNK_LOADER_BLOCK);
     }
     
     public void refreshGUI(ForcedChunksUpdatePacket payload)
