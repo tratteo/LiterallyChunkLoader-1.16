@@ -17,6 +17,9 @@
     "entrypoints": {
         "main": [
             "net.literally.chunk.loader.loaders.LCLLoader"
+        ],
+        "client": [
+            "net.literally.chunk.loader.loaders.LCLClientLoader"
         ]
     },
     "depends": {

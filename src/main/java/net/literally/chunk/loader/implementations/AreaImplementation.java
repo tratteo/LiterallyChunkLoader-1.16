@@ -13,22 +13,7 @@ public final class AreaImplementation
     public static boolean areAreasEqual(AreaData first, AreaData second)
     {
         if(!first.getDimensionID().equals(second.getDimensionID())) return false;
-        return first.getFromChunkX() == second.getFromChunkX() && first.getFromChunkZ() == second.getFromChunkZ() && first.getToChunkX() == second.getToChunkX() && first.getToChunkZ() == second.getToChunkZ();
-    }
-    
-    public static boolean areAreasOverlapping(AreaData first, AreaData second)
-    {
-        if(!first.getDimensionID().equals(second.getDimensionID())) return false;
-        
-        if(first.getToChunkX() < second.getFromChunkX() || second.getToChunkX() < first.getFromChunkX())
-        {
-            return false;
-        }
-        if(first.getToChunkZ() < second.getFromChunkZ() || second.getToChunkZ() < first.getFromChunkZ())
-        {
-            return false;
-        }
-        return true;
+        return first.getCentreData().equals(second.getCentreData());
     }
     
     public static RegistryKey<World> getDimensionRegistryKey(String id)
@@ -50,24 +35,4 @@ public final class AreaImplementation
         }
         return null;
     }
-    //
-    //public static String getIDFromRegistryKey(RegistryKey<World> type)
-    //{
-    //    if(type.equals(DimensionType.))
-    //    {
-    //        return OVERWORLD_ID;
-    //    }
-    //    else if(type.equals(DimensionType.THE_NETHER_REGISTRY_KEY))
-    //    {
-    //        return NETHER_ID;
-    //    }
-    //    else if(type.equals(DimensionType.THE_END_REGISTRY_KEY))
-    //    {
-    //        return END_ID;
-    //    }
-    //    else
-    //    {
-    //        return "";
-    //    }
-    //}
 }

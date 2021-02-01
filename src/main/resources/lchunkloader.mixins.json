@@ -5,7 +5,8 @@
     "mixins": [
         "ChunkTicketManagerInvoker",
         "ChunkTicketTypeAccessor",
-        "ThreadedAnvilChunkStorageInvoker"
+        "ThreadedAnvilChunkStorageInvoker",
+        "MinecraftServerMixin"
     ],
     "client": [
     ],

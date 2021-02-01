@@ -2,8 +2,8 @@ package net.literally.chunk.loader.initializer;
 
 import com.mojang.brigadier.CommandDispatcher;
 import net.fabricmc.fabric.api.registry.CommandRegistry;
-import net.literally.chunk.loader.data.AreaData;
-import net.literally.chunk.loader.data.SerializedAreasData;
+import net.literally.chunk.loader.data.LclData;
+import net.literally.chunk.loader.data.SerializableChunkPos;
 import net.literally.chunk.loader.saves.ChunksSerializeManager;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
@@ -29,14 +29,14 @@ public final class LCLCommands
             ArrayList<String> launchersList = new ArrayList<>();
             dispatcher.register(CommandManager.literal("lclocate").executes(ctx ->
             {
-                SerializedAreasData areasData = ChunksSerializeManager.deserialize(ctx.getSource().getWorld().getServer().getSaveProperties().getLevelName());
+                LclData areasData = ChunksSerializeManager.deserialize(ctx.getSource().getWorld().getServer().getSaveProperties().getLevelName());
                 if(areasData == null)
                 {
                     ctx.getSource().sendFeedback((new LiteralText("No loaders found")), false);
                     return 1;
                 }
-                ArrayList<AreaData> areas = areasData.getAreas();
-                int size = areas.size();
+                ArrayList<SerializableChunkPos> chunks = areasData.getLoadersChunks();
+                int size = chunks.size();
                 if(size == 0)
                 {
                     ctx.getSource().sendFeedback((new LiteralText("No loaders found")), false);
@@ -45,8 +45,8 @@ public final class LCLCommands
                 String response = "Found " + size + " placed loaders: \n";
                 for(int i = 0; i < size; i++)
                 {
-                    AreaData current = areas.get(i);
-                    response += "[" + current.getCentreData().getX() + ", " + current.getCentreData().getZ() + "]";
+                    SerializableChunkPos current = chunks.get(i);
+                    response += "[" + current.getX() + ", " + current.getZ() + "]";
                     if(i < size - 1)
                     {
                         response += ", ";

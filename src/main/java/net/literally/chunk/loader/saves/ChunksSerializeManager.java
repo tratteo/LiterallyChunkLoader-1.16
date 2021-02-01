@@ -1,6 +1,6 @@
 package net.literally.chunk.loader.saves;
 
-import net.literally.chunk.loader.data.SerializedAreasData;
+import net.literally.chunk.loader.data.LclData;
 import net.literally.chunk.loader.loaders.LCLLoader;
 import net.literally.chunk.loader.utils.ModLogger;
 
@@ -16,7 +16,7 @@ public final class ChunksSerializeManager
     private static FileInputStream inputStream;
     private static ObjectInputStream objectInputStream;
     
-    public static boolean serialize(SerializedAreasData areasData, String worldName)
+    public static boolean serialize(LclData areasData, String worldName)
     {
         ModLogger logger = new ModLogger(LCLLoader.MOD_ID);
         try
@@ -41,7 +41,7 @@ public final class ChunksSerializeManager
         }
     }
     
-    public static SerializedAreasData deserialize(String worldName)
+    public static LclData deserialize(String worldName)
     {
         ModLogger logger = new ModLogger(LCLLoader.MOD_ID);
         try
@@ -54,10 +54,10 @@ public final class ChunksSerializeManager
             inputStream = new FileInputStream(getCompletePath(worldName));
             objectInputStream = new ObjectInputStream(inputStream);
             Object areasData = objectInputStream.readObject();
-            if(areasData instanceof SerializedAreasData)
+            if(areasData instanceof LclData)
             {
                 //logger.logInfo("Persistent chunks file successfully deserialized");
-                return (SerializedAreasData) areasData;
+                return (LclData) areasData;
             }
             else
             {

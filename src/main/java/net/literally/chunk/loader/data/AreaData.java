@@ -1,33 +1,42 @@
 package net.literally.chunk.loader.data;
 
+import javafx.util.Pair;
+import net.minecraft.network.PacketByteBuf;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class AreaData implements Serializable
 {
+    public static final int SIZE = 5;
     private CentreData centre;
-    
+    private ArrayList<Pair<Integer, Integer>> bitmap;
     private String dimensionID;
-    private int fromChunkX;
-    private int toChunkX;
-    private int fromChunkZ;
-    private int toChunkZ;
-    private boolean active;
     
     public AreaData(CentreData centre, String dimensionID)
     {
-        this.dimensionID = dimensionID;
         this.centre = centre;
-        this.fromChunkX = centre.getChunkX() - 2;
-        this.toChunkX = centre.getChunkX() + 2;
-        this.fromChunkZ = centre.getChunkZ() - 2;
-        this.toChunkZ = centre.getChunkZ() + 2;
+        this.dimensionID = dimensionID;
+        bitmap = new ArrayList<>();
     }
     
-    public AreaData(float x, float y, String dimensionID)
+    public void setBitmap(ArrayList<Pair<Integer, Integer>> loaded)
     {
-        this(new CentreData(x, y), dimensionID);
+        this.bitmap = loaded;
+    }
+    public ArrayList<Pair<Integer, Integer>> getBitmap()
+    {
+        return bitmap;
     }
     
+    public void addBit(int i, int j)
+    {
+        Pair pair = new Pair(i,j);
+        if(!bitmap.contains(pair))
+        {
+            bitmap.add(pair);
+        }
+    }
     public String getDimensionID() {return dimensionID;}
     
     public CentreData getCentreData()
@@ -35,38 +44,45 @@ public class AreaData implements Serializable
         return this.centre;
     }
     
-    public int getFromChunkX()
+    public static AreaData read(PacketByteBuf buf)
     {
-        return this.fromChunkX;
+        CentreData centreData = CentreData.read(buf);
+        String dimension = buf.readString();
+        AreaData area = new AreaData(centreData, dimension);
+        int size = buf.readInt();
+        for(int i = 0; i < size; i++)
+        {
+            area.addBit(buf.readInt(), buf.readInt());
+        }
+        return area;
     }
     
-    public int getToChunkX()
+    
+    @Override public boolean equals(Object obj)
     {
-        return this.toChunkX;
+        if(obj instanceof AreaData)
+        {
+            AreaData other = (AreaData) obj;
+            return other.getCentreData().equals(getCentreData()) && other.getDimensionID() == getDimensionID();
+        }
+        return super.equals(obj);
     }
     
-    public int getFromChunkZ()
+    public void write(PacketByteBuf buf)
     {
-        return this.fromChunkZ;
+        centre.write(buf);
+        buf.writeString(dimensionID);
+        buf.writeInt(bitmap.size());
+        for(int i = 0; i < bitmap.size(); i++)
+        {
+            buf.writeInt(bitmap.get(i).getKey());
+            buf.writeInt(bitmap.get(i).getValue());
+        }
     }
     
-    public int getToChunkZ()
-    {
-        return this.toChunkZ;
-    }
-    
-    public boolean getActive()
-    {
-        return this.active;
-    }
-    
-    public void setActive(boolean active)
-    {
-        this.active = active;
-    }
     
     @Override public String toString()
     {
-        return "Dimension: " + dimensionID + ", from [" + fromChunkX + ", " + fromChunkZ + "], to [" + toChunkX + ", " + toChunkZ + "]";
+        return "Centre: "+ centre.toString()+", dimension: "+dimensionID;
     }
 }

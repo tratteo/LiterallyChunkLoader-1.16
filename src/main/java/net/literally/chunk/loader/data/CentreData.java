@@ -1,7 +1,7 @@
 package net.literally.chunk.loader.data;
 
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
 
 import java.io.Serializable;
 
@@ -9,7 +9,6 @@ public class CentreData implements Serializable
 {
     private float x;
     private float z;
-    private ChunkPos chunkPos;
     private int chunkX;
     private int chunkZ;
     
@@ -20,12 +19,15 @@ public class CentreData implements Serializable
     public int getChunkX() {return this.chunkX;}
     
     public int getChunkZ() {return this.chunkZ;}
+    
     public CentreData(BlockPos blockPos)
     {
         this.x = blockPos.getX();
         this.z = blockPos.getZ();
-        chunkPos = new ChunkPos(blockPos);
+        chunkX = ((int) x >> 4);
+        chunkZ = ((int) z >> 4);
     }
+    
     public CentreData(float x, float z)
     {
         this.x = x;
@@ -37,5 +39,28 @@ public class CentreData implements Serializable
     @Override public String toString()
     {
         return "coord: ( " + x + ", " + z + " )" + ", chunk: ( " + chunkX + ", " + chunkZ + " )";
+    }
+    
+    public static CentreData read(PacketByteBuf buf)
+    {
+        float x = buf.readFloat();
+        float y = buf.readFloat();
+        return new CentreData(x, y);
+    }
+    
+    @Override public boolean equals(Object obj)
+    {
+        if(obj instanceof CentreData)
+        {
+            CentreData other = (CentreData) obj;
+            return chunkX == other.getChunkX() && chunkZ == other.getChunkZ();
+        }
+        return super.equals(obj);
+    }
+    
+    public void write(PacketByteBuf buf)
+    {
+        buf.writeFloat(getX());
+        buf.writeFloat(getZ());
     }
 }
