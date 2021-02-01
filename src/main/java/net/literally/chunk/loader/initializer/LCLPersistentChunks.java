@@ -2,7 +2,9 @@ package net.literally.chunk.loader.initializer;
 
 import net.literally.chunk.loader.data.LclData;
 import net.literally.chunk.loader.data.SerializableChunkPos;
+import net.literally.chunk.loader.loaders.LCLLoader;
 import net.literally.chunk.loader.saves.ChunksSerializeManager;
+import net.literally.chunk.loader.utils.ModLogger;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
 
@@ -20,11 +22,22 @@ public final class LCLPersistentChunks
         initializeForcedChunks(server);
     }
     
-    public static boolean loaderRemoved(SerializableChunkPos chunk)
+    public static void loaderRemoved(MinecraftServer server, SerializableChunkPos chunk)
     {
         data.removeLoaderPos(chunk);
-        //TODO remove all 25 chunks from force loading
-        return save();
+        resetLoaderArea(server, chunk);
+        save();
+    }
+    
+    private static void resetLoaderArea(MinecraftServer server, SerializableChunkPos chunk)
+    {
+        for(int i = 0; i < LclData.SIZE; i++)
+        {
+            for(int j = 0; j < LclData.SIZE; j++)
+            {
+                forceLoadChunk(server, chunk.getChunkAtRelativeOffset(i, j), false);
+            }
+        }
     }
     
     public static boolean loaderAdded(SerializableChunkPos chunk)
@@ -33,11 +46,10 @@ public final class LCLPersistentChunks
         return save();
     }
     
-    public static boolean forceLoadChunk(MinecraftServer server, SerializableChunkPos chunk, boolean state)
+    public static void forceLoadChunk(MinecraftServer server, SerializableChunkPos chunk, boolean state)
     {
         data.chunkForceLoaded(chunk, state);
         setChunkForceLoaded(server, chunk, state);
-        return true;
     }
     
     
@@ -49,6 +61,7 @@ public final class LCLPersistentChunks
     
     private static void initializeForcedChunks(MinecraftServer server)
     {
+        ModLogger logger = new ModLogger(LCLLoader.MOD_ID);
         data = ChunksSerializeManager.deserialize(server.getSaveProperties().getLevelName());
         if(data == null)
         {
@@ -57,25 +70,25 @@ public final class LCLPersistentChunks
         }
         else
         {
-            System.out.println("Initializing: " + data.getChunks().size() + " persistent areas");
+            logger.logInfo("Initializing: " + data.getChunks().size() + " force loaded chunks");
+            logger.logInfo("Found: " + data.getLoadersChunks().size() + " Loaders placed");
             ArrayList<SerializableChunkPos> chunks = data.getChunks();
-            for(int i = 0; i < chunks.size(); i++)
+            for(SerializableChunkPos chunk : chunks)
             {
-                SerializableChunkPos chunk = chunks.get(i);
                 setChunkForceLoaded(server, chunk, true);
             }
         }
     }
     
     
-    public static boolean setChunkForceLoaded(MinecraftServer server, SerializableChunkPos chunk, boolean state)
+    private static void setChunkForceLoaded(MinecraftServer server, SerializableChunkPos chunk, boolean state)
     {
         ServerWorld serverWorld = server.getWorld(chunk.getDimensionRegistryKey());
         if(chunk.getX() >= -30000000 && chunk.getZ() >= -30000000 && chunk.getX() < 30000000 && chunk.getZ() < 30000000)
         {
-            return serverWorld.setChunkForced(chunk.getX(), chunk.getZ(), state);
+            assert serverWorld != null;
+            serverWorld.setChunkForced(chunk.getX(), chunk.getZ(), state);
         }
-        return false;
     }
     
     public static boolean save()

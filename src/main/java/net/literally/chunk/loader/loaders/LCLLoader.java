@@ -3,7 +3,7 @@ package net.literally.chunk.loader.loaders;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.literally.chunk.loader.initializer.*;
-import net.literally.chunk.loader.network.packets.packet.ForcedChunksC2SPacket;
+import net.literally.chunk.loader.network.packets.packet.ForcedChunksUpdatePacket;
 
 public class LCLLoader implements ModInitializer
 {
@@ -18,6 +18,6 @@ public class LCLLoader implements ModInitializer
         LCLGUIHandlers.initialize();
         LCLEntities.initialize();
         
-        ServerPlayNetworking.registerGlobalReceiver(ForcedChunksC2SPacket.PACKET_ID, (server, servPlayer, handler, buf, sender) -> ForcedChunksC2SPacket.read(buf).onReceive(server, servPlayer, handler, sender));
+        ServerPlayNetworking.registerGlobalReceiver(ForcedChunksUpdatePacket.PACKET_ID, (server, servPlayer, handler, buf, sender) -> ForcedChunksUpdatePacket.read(buf).onServerReceive(server, servPlayer, handler, buf, sender));
     }
 }

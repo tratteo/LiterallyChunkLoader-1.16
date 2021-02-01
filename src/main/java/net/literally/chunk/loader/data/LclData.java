@@ -5,8 +5,9 @@ import java.util.ArrayList;
 
 public class LclData implements Serializable
 {
-    private ArrayList<SerializableChunkPos> chunks;
-    private ArrayList<SerializableChunkPos> loadersChunks;
+    public static final int SIZE = 5;
+    private final ArrayList<SerializableChunkPos> chunks;
+    private final ArrayList<SerializableChunkPos> loadersChunks;
     private boolean apiUpdate = false;
     
     public LclData()
@@ -49,7 +50,6 @@ public class LclData implements Serializable
     
     public boolean isLoaderPresentAt(SerializableChunkPos chunk)
     {
-        System.out.println("Seraching in: " + loadersChunks.size() + " loaders");
         return loadersChunks.contains(chunk);
     }
     

@@ -4,13 +4,13 @@ import it.unimi.dsi.fastutil.longs.LongSet;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.literally.chunk.loader.data.AreaData;
+import net.literally.chunk.loader.data.LclData;
 import net.literally.chunk.loader.data.SerializableChunkPos;
 import net.literally.chunk.loader.entity.ChunkLoaderBlockEntity;
 import net.literally.chunk.loader.initializer.LCLItems;
 import net.literally.chunk.loader.initializer.LCLPersistentChunks;
 import net.literally.chunk.loader.loaders.LCLLoader;
-import net.literally.chunk.loader.network.packets.packet.ForcedChunksS2CPacket;
+import net.literally.chunk.loader.network.packets.packet.ForcedChunksUpdatePacket;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.LivingEntity;
@@ -68,7 +68,6 @@ public class ChunkLoaderBlock extends BlockWithEntity
         player.openHandledScreen(state.createScreenHandlerFactory(world, pos));
         if(!world.isClient)
         {
-            
             ServerWorld serverWorld = (ServerWorld)world;
             LongSet set = serverWorld.getForcedChunks();
             ArrayList<SerializableChunkPos> longs = new ArrayList<>();
@@ -77,20 +76,18 @@ public class ChunkLoaderBlock extends BlockWithEntity
             while(it.hasNext())
             {
                 long longPos = it.next();
-                int fromX = chunk.getX() - (AreaData.SIZE / 2);
-                int toX = chunk.getX() + (AreaData.SIZE / 2);
-                int fromZ = chunk.getZ() - (AreaData.SIZE / 2);
-                int toZ = chunk.getZ() + (AreaData.SIZE / 2);
+                int fromX = chunk.getX() - (LclData.SIZE / 2);
+                int toX = chunk.getX() + (LclData.SIZE / 2);
+                int fromZ = chunk.getZ() - (LclData.SIZE / 2);
+                int toZ = chunk.getZ() + (LclData.SIZE / 2);
                 int x = ChunkPos.getPackedX (longPos);
                 int z = ChunkPos.getPackedZ (longPos);
-                //System.out.println("Fx: "+fromX+", Tx: "+toX+", Fz: "+fromZ+", Tz: "+toZ+", X, Z: "+x+", "+z);
                 if(x >= fromX && x <= toX && z >= fromZ && z <= toZ)
                 {
                     longs.add(new SerializableChunkPos(longPos, chunk.getDimension()));
                 }
             }
-            //System.out.println("Calc: "+longs.size()+" chunks");
-            ForcedChunksS2CPacket pack = new ForcedChunksS2CPacket(longs, chunk.getX(), chunk.getZ());
+            ForcedChunksUpdatePacket pack = new ForcedChunksUpdatePacket(chunk.getX(), chunk.getZ(), true, longs);
             pack.sendTo(player);
         }
         return ActionResult.SUCCESS;
@@ -101,8 +98,8 @@ public class ChunkLoaderBlock extends BlockWithEntity
     {
         if(!world.isClient)
         {
-            SerializableChunkPos chunk =new SerializableChunkPos(pos, world.getRegistryKey().getValue().getPath());
-            LCLPersistentChunks.loaderRemoved(chunk);
+            SerializableChunkPos chunk = new SerializableChunkPos(pos, world.getRegistryKey().getValue().getPath());
+            LCLPersistentChunks.loaderRemoved(world.getServer(), chunk);
         }
         super.onBreak(world, pos, state, player);
     }
@@ -118,13 +115,13 @@ public class ChunkLoaderBlock extends BlockWithEntity
             if(canPlace)
             {
                 boolean added =  LCLPersistentChunks.loaderAdded(chunk);
-                System.out.println("Added: "+added);
             }
             else
             {
                 PlayerEntity player = (PlayerEntity) placer;
                 ItemScatterer.spawn(world, pos, new SimpleInventory(new ItemStack(LCLItems.CHUNKLOADERITEM, 1)));
                 world.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
+                assert server != null;
                 server.getPlayerManager().getPlayer(player.getUuid()).sendMessage(new LiteralText("Can't place a Loader in the same chunk of another Loader"), MessageType.GAME_INFO, Util.NIL_UUID);
                 return;
             }
@@ -168,6 +165,11 @@ public class ChunkLoaderBlock extends BlockWithEntity
     public BlockState mirror(BlockState state, BlockMirror mirror)
     {
         return state.rotate(mirror.getRotation(state.get(FACING)));
+    }
+    
+    public BlockRenderType getRenderType(BlockState state)
+    {
+        return BlockRenderType.MODEL;
     }
     
     @Nullable @Override public BlockEntity createBlockEntity(BlockView world)

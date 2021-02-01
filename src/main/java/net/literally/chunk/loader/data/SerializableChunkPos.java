@@ -9,9 +9,9 @@ import java.io.Serializable;
 
 public class SerializableChunkPos implements Serializable
 {
-    private int x;
-    private int z;
-    private String dimension;
+    private final int x;
+    private final int z;
+    private final String dimension;
     
     public SerializableChunkPos(BlockPos origin, String dimension)
     {
@@ -23,9 +23,9 @@ public class SerializableChunkPos implements Serializable
         this((int) pos, (int) (pos >> 32), dimension);
     }
     
-    public SerializableChunkPos(float blockX, float blockY, String dimension)
+    public SerializableChunkPos(float blockX, float blockZ, String dimension)
     {
-        this((int) blockX >> 4, (int) blockY >> 4, dimension);
+        this((int) blockX >> 4, (int) blockZ >> 4, dimension);
     }
     
     public SerializableChunkPos(int x, int z, String dimension)
@@ -38,9 +38,21 @@ public class SerializableChunkPos implements Serializable
     public static SerializableChunkPos read(PacketByteBuf buf)
     {
         int x = buf.readInt();
-        int y = buf.readInt();
+        int z = buf.readInt();
         String dimension = buf.readString();
-        return new SerializableChunkPos(x, y, dimension);
+        return new SerializableChunkPos(x, z, dimension);
+    }
+    
+    public float distanceFrom(SerializableChunkPos pos)
+    {
+        float firstSq = Math.abs(pos.getX() - getX());
+        float secSq = Math.abs(pos.getZ() - getZ());
+        return (float)Math.sqrt(firstSq * firstSq + secSq * secSq);
+    }
+    
+    @Override public String toString()
+    {
+        return "["+getX()+", "+getZ()+"] in "+dimension;
     }
     
     @Override public boolean equals(Object obj)
@@ -55,8 +67,8 @@ public class SerializableChunkPos implements Serializable
     
     public void write(PacketByteBuf buf)
     {
-        buf.writeInt(getX());
-        buf.writeInt(getZ());
+        buf.writeInt(x);
+        buf.writeInt(z);
         buf.writeString(dimension);
     }
     
@@ -70,6 +82,19 @@ public class SerializableChunkPos implements Serializable
         return z;
     }
     
+    public SerializableChunkPos getChunkAtRelativeOffset(int i, int j)
+    {
+        return new SerializableChunkPos(getWorldRelativeX(i), getWorldRelativeZ(j), getDimension());
+    }
+    
+    public int getWorldRelativeX(int index)
+    {
+        return x - (LclData.SIZE / 2) + index;
+    }
+    public int getWorldRelativeZ(int index)
+    {
+        return z - (LclData.SIZE / 2) + index;
+    }
     public String getDimension()
     {
         return dimension;
@@ -77,18 +102,15 @@ public class SerializableChunkPos implements Serializable
     
     public RegistryKey<World> getDimensionRegistryKey()
     {
-        String overworldID = World.OVERWORLD.getValue().getPath();
-        String netherID = World.NETHER.getValue().getPath();
-        String endID = World.END.getValue().getPath();
-        if(dimension.equals(overworldID))
+        if(dimension.equals(World.OVERWORLD.getValue().getPath()))
         {
             return World.OVERWORLD;
         }
-        else if(dimension.equals(netherID))
+        else if(dimension.equals(World.NETHER.getValue().getPath()))
         {
             return World.NETHER;
         }
-        else if(dimension.equals(endID))
+        else if(dimension.equals( World.END.getValue().getPath()))
         {
             return World.END;
         }
